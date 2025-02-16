@@ -32,6 +32,18 @@ body{
     padding: 10px;
 }
 
-.wrapper__task{
-   
+.wrapper__answers{
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.answer__error{
+    color: brown;
+}
+
+.answer__error,
+.answer__attempt{
+    margin: 15px 10px;
+    border: 1px solid rgb(40, 40, 40); border-radius: 3px;
 }
