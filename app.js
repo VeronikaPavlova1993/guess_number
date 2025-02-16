@@ -14,3 +14,10 @@ document.body.insertAdjacentHTML(
     </div>
     </div>`
 );
+
+const input = document.querySelector('.check__input');
+const btn = document.querySelector('.check__btn');
+const answers = document.querySelector('.wrapper__answers');
+
+
+
