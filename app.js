@@ -20,4 +20,6 @@ const btn = document.querySelector('.check__btn');
 const answers = document.querySelector('.wrapper__answers');
 
 
+const randomNumber = Math.floor(Math.random() * 100 + 1);
+
 
