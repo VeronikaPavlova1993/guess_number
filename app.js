@@ -15,11 +15,46 @@ document.body.insertAdjacentHTML(
     </div>`
 );
 
-const input = document.querySelector('.check__input');
-const btn = document.querySelector('.check__btn');
-const answers = document.querySelector('.wrapper__answers');
-
+let input = document.querySelector('.check__input');
+let btn = document.querySelector('.check__btn');
+let answers = document.querySelector('.wrapper__answers');
 
 const randomNumber = Math.floor(Math.random() * 100 + 1);
+console.log(randomNumber);
 
+function handleClick(e) {
+ e.preventDefault();
+ let answer = input.value;
 
+ if (isNaN(answer) == true) {
+  const textError = 'Ошибка ввода! Ввести нужно только число';
+  answers.insertAdjacentHTML(
+   'beforeend',
+   `<div class='answer__error'><p>Компьютер 1: ${answer}</p><p>Компьютер 2: ${textError}</p></div> `
+  );
+ } else if (answer > randomNumber) {
+  const text = 'Меньше';
+  answers.insertAdjacentHTML(
+   'beforeend',
+   `<div class='answer__attempt'><p>Компьютер 1: ${answer}</p><p>Компьютер 2: ${text}</p></div>`
+  );
+ } else if (answer < randomNumber) {
+  const text = 'Больше';
+  answers.insertAdjacentHTML(
+   'beforeend',
+   `<div class='answer__attempt'><p>Компьютер 1: ${answer}</p><p>Компьютер 2: ${text}</p></div>`
+  );
+ } else {
+  const text = 'Угадал!';
+  answers.insertAdjacentHTML(
+   'beforeend',
+   `<div class='answer__attempt'><p>Компьютер 1: ${answer}</p><p>Компьютер 2: ${text}</p></div>`
+  );
+  const newGame = confirm(`Угадал!\nЭто число ${answer}.\nСыграете еще раз?`);
+  if (newGame == true) {
+   location.reload();
+  }
+ }
+}
+
+btn.addEventListener('click', handleClick);
